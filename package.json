@@ -1,0 +1,111 @@
+{
+  "name": "standup",
+  "displayName": "StandUp",
+  "description": "Automatically generates your daily standup by tracking your Git commits, file edits, terminal commands, and time-on-file.",
+  "version": "0.1.0",
+  "publisher": "standup-dev",
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "icon": "media/icon.png",
+  "contributes": {
+    "commands": [
+      {
+        "command": "standup.generateStandup",
+        "title": "StandUp: Generate Standup",
+        "icon": "$(output)"
+      },
+      {
+        "command": "standup.showReplay",
+        "title": "StandUp: Show Productivity Replay",
+        "icon": "$(graph)"
+      },
+      {
+        "command": "standup.sendToSlack",
+        "title": "StandUp: Send to Slack",
+        "icon": "$(cloud-upload)"
+      },
+      {
+        "command": "standup.configureSlack",
+        "title": "StandUp: Configure Slack Webhook"
+      },
+      {
+        "command": "standup.connectSlack",
+        "title": "StandUp: Connect Slack"
+      },
+      {
+        "command": "standup.sendToLinkedIn",
+        "title": "StandUp: Post to LinkedIn",
+        "icon": "$(globe)"
+      },
+      {
+        "command": "standup.configureLinkedIn",
+        "title": "StandUp: Configure LinkedIn"
+      },
+      {
+        "command": "standup.connectLinkedIn",
+        "title": "StandUp: Connect LinkedIn"
+      },
+      {
+        "command": "standup.clearTodayData",
+        "title": "StandUp: Clear Today's Data"
+      }
+    ],
+    "configuration": {
+      "title": "StandUp",
+      "properties": {
+        "standup.slackWebhookUrl": {
+          "type": "string",
+          "default": "",
+          "description": "Slack Incoming Webhook URL for sending standup updates."
+        },
+        "standup.linkedinAccessToken": {
+          "type": "string",
+          "default": "",
+          "description": "LinkedIn OAuth access token with permission to create posts."
+        },
+        "standup.linkedinAuthorUrn": {
+          "type": "string",
+          "default": "",
+          "description": "LinkedIn author URN used for posting, for example: urn:li:person:xxxxxxxx."
+        },
+        "standup.standupTime": {
+          "type": "string",
+          "default": "09:00",
+          "description": "Time of day to auto-generate the standup (24h format, e.g. '09:00')."
+        },
+        "standup.autoGenerate": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically generate standup at the configured time."
+        },
+        "standup.dataRetentionDays": {
+          "type": "number",
+          "default": 7,
+          "description": "Number of days to keep tracking data before auto-cleanup."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.93.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.0"
+  }
+}
