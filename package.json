@@ -1,9 +1,9 @@
 {
-  "name": "standup",
-  "displayName": "StandUp",
+  "name": "standup-ai",
+  "displayName": "StandUp AI",
   "description": "Automatically generates your daily standup by tracking your Git commits, file edits, terminal commands, and time-on-file.",
   "version": "0.1.0",
-  "publisher": "standup-dev",
+  "publisher": "nishilsoni",
   "engines": {
     "vscode": "^1.93.0"
   },
@@ -11,7 +11,15 @@
     "Other"
   ],
   "activationEvents": [
-    "*"
+    "onCommand:standup.generateStandup",
+    "onCommand:standup.showReplay",
+    "onCommand:standup.sendToSlack",
+    "onCommand:standup.configureSlack",
+    "onCommand:standup.sendToLinkedIn",
+    "onCommand:standup.configureLinkedIn",
+    "onCommand:standup.connectSlack",
+    "onCommand:standup.connectLinkedIn",
+    "onCommand:standup.clearTodayData"
   ],
   "main": "./out/extension.js",
   "icon": "media/icon.png",
@@ -107,5 +115,10 @@
     "@typescript-eslint/parser": "^7.0.0",
     "eslint": "^8.56.0",
     "typescript": "^5.3.0"
+  }
+  ,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nishilsoni/StandUp.git"
   }
 }
